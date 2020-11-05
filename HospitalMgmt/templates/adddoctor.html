@@ -1,0 +1,51 @@
+
+{% extends "nav.html" %}
+
+{%block body%}
+
+
+
+            {% ifequal error "yes" %}
+            <script >
+
+                alert("Record Save Successfully ")
+                window.location = ('{% url "views_doctor" %}')
+
+            </script>
+
+            {%endifequal%}
+
+            {% ifequal error "no" %}
+            <script>
+
+                alert("Somthing Worng")
+
+
+            </script>
+            {%endifequal%}
+
+
+
+ <div class="container">
+    <h2 class="text-center mt-2 mb-3">Add Doctor</h2>
+
+ <form method="post">
+{% csrf_token %}
+  <div class="form-group">
+    <label for="exampleInputEmail1">Doctor Name</label>
+    <input type="text" class="form-control" id="exampleInputEmail1" required name= "name" aria-describedby="emailHelp">
+  </div>
+
+  <div class="form-group">
+    <label for="exampleInputPassword1">Doctor Contact</label>
+    <input type="text" class="form-control" id="exampleInputPassword1" name="contact" required>
+  </div>
+
+  <div class="form-group">
+    <label for="exampleInputPassword1">Doctor Specialization</label>
+    <input type="special" class="form-control" id="exampleInputPassword1" required name="special">
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+</div>
+{%endblock%}

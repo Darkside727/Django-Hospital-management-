@@ -1,0 +1,67 @@
+
+{% extends "nav.html" %}
+
+{%block body%}
+
+
+
+            {% ifequal error "yes" %}
+            <script >
+
+                alert("Record Save Successfully ")
+                window.location = ('{% url "views_appoiment" %}')
+
+            </script>
+
+            {%endifequal%}
+
+            {% ifequal error "no" %}
+            <script>
+
+                alert("Somthing Worng")
+
+
+            </script>
+            {%endifequal%}
+
+
+
+ <div class="container">
+    <h2 class="text-center mt-2 mb-3">Add Appoiment</h2>
+
+ <form method="post">
+{% csrf_token %}
+  <div class="form-group">
+    <label for="exampleInputEmail1">Doctor Name</label>
+    <select name="doctor" class="form-control">
+        {% for doc in doctor %}
+        <option value="{{doc.Name}}"> {{doc.Name}} Id number [{{doc.id}}]</option>
+        {%endfor%}
+    </select>
+  </div>
+
+<div class="form-group">
+    <label for="exampleInputEmail1">Paitent</label>
+    <select name="paitent" class="form-control">
+        {% for pat in patient %}
+        <option value="{{pat.Name}}"> {{pat.Name}} Id number [{{pat.id}}]</option>
+        {%endfor%}
+    </select>
+</div>
+
+
+  <div class="form-group">
+    <label for="exampleInputPassword1">Date </label>
+    <input type="date" class="form-control" id="exampleInputPassword1" required name="date">
+  </div>
+
+  <div class="form-group">
+    <label for="exampleInputPassword1">Patient Address</label>
+    <input type="time" class="form-control" id="exampleInputPassword1" required name="time">
+  </div>
+
+  <button type="submit" class="btn btn-primary">Submit</button>
+
+</form>
+</div>
+{%endblock%}

@@ -1,0 +1,33 @@
+{% extends "nav.html" %}
+{%block body%}
+
+  <div class="container " style="margin-top: 30px;">
+    <h2 class="text-center " style="text-transform: uppercase; font-size: 30px; font-weight: bold;"> View Patient </h2>
+    <br>
+<table class="table"  id="example" >
+  <thead style="color: black">
+    <tr>
+      <th scope="col">Id</th>
+      <th scope="col">Doctor Name</th>
+      <th scope="col">Patient Name</th>
+      <th scope="col">Date</th>
+      <th scope="col">Time</th>
+      <th scope="col">Remove</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for views in viewsAppointment %}
+    <tr>
+      <th scope="row">{{views.id}}</th>
+      <td>{{views.Doctor}}</td>
+      <td>{{views.Patient}}</td>
+      <td>{{views.Date1}}</td>
+      <td>{{views.Time1}}</td>
+      <td><a href="{%url 'remove_appoiment' views.id %}" onclick="return confirm(' Are You Sure? You want to Remove this Record from DataBase')" class="btn btn-danger">Remove</a></td>
+    </tr>
+    {%endfor%}
+  </tbody>
+</table>
+  </div>
+
+{%endblock%}

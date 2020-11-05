@@ -1,0 +1,30 @@
+.nav-link{
+
+    color: white !important
+}
+
+
+.nav-link:hover{
+
+    color: white !important;
+    background-color: green;
+    border-radius: 5px;
+}
+
+.navbar-brand:hover{
+
+    color: white !important;
+    background-color: green;
+    border-radius: 5px;
+}
+
+.bound{
+    border-top: 8px solid lightblue;
+    border-radius: 5px;
+}
+
+ .mystyle:hover{
+        box-shadow: 0 0 20px 0;
+        color: blue;
+        transform: translateY(-20px);
+    }
